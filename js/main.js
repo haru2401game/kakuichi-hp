@@ -7,26 +7,31 @@ const targets = document.querySelectorAll(".fade");
 
 
 const observer = new IntersectionObserver(
-    (entries)=>{
+(entries)=>{
 
-        entries.forEach(entry=>{
 
-            if(entry.isIntersecting){
+    entries.forEach(entry=>{
 
-                entry.target.classList.add("show");
 
-                // 一度表示したら監視解除
-                observer.unobserve(entry.target);
+        if(entry.isIntersecting){
 
-            }
 
-        });
+            entry.target.classList.add("show");
 
-    },
-    {
-        threshold:0.2
-    }
-);
+
+            observer.unobserve(entry.target);
+
+
+        }
+
+
+    });
+
+
+},
+{
+    threshold:0.2
+});
 
 
 
@@ -55,19 +60,12 @@ window.addEventListener("scroll",()=>{
 
     if(window.scrollY > 100){
 
-        header.style.background =
-        "rgba(20,20,20,0.95)";
-
-        header.style.transition =
-        "0.3s";
+        header.classList.add("scrolled");
 
 
     }else{
 
-
-        header.style.background =
-        "linear-gradient(rgba(0,0,0,0.35),transparent)";
-
+        header.classList.remove("scrolled");
 
     }
 
@@ -80,9 +78,8 @@ window.addEventListener("scroll",()=>{
 
 
 
-
 // =====================
-// Food Card Animation
+// Food Animation
 // =====================
 
 
@@ -101,10 +98,7 @@ const foodObserver = new IntersectionObserver(
 
             setTimeout(()=>{
 
-                entry.target.style.opacity="1";
-
-                entry.target.style.transform=
-                "translateY(0)";
+                entry.target.classList.add("show");
 
 
             },index * 200);
@@ -127,25 +121,13 @@ const foodObserver = new IntersectionObserver(
 
 
 
-
 foods.forEach(food=>{
-
-
-    food.style.opacity="0";
-
-    food.style.transform=
-    "translateY(40px)";
-
-
-    food.style.transition=
-    "0.8s";
 
 
     foodObserver.observe(food);
 
 
 });
-
 
 
 
@@ -177,6 +159,61 @@ document.querySelectorAll('a[href^="#"]')
         target.scrollIntoView({
 
             behavior:"smooth"
+
+        });
+
+
+    });
+
+
+});
+
+
+
+
+
+
+
+// =====================
+// Food Image Lightbox
+// =====================
+
+
+const images =
+document.querySelectorAll(".gallery-image");
+
+
+
+images.forEach(image=>{
+
+
+    image.addEventListener("click",()=>{
+
+
+        const modal =
+        document.createElement("div");
+
+
+        modal.className="image-modal";
+
+
+        modal.innerHTML=`
+
+        <img src="${image.src}">
+
+        `;
+
+
+
+        document.body.appendChild(modal);
+
+
+
+        modal.addEventListener("click",()=>{
+
+
+            modal.remove();
+
 
         });
 

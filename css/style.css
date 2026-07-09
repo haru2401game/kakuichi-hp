@@ -905,5 +905,59 @@ nav{
 
 }
 
+/* =====================
+ Image Lightbox
+===================== */
+
+
+.gallery-image{
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.gallery-image:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+
+.image-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.85);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+
+}
+
+
+
+.image-modal img{
+
+    max-width:90%;
+
+    max-height:90%;
+
+    object-fit:contain;
+
+}
 
 }
