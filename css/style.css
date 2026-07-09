@@ -26,12 +26,21 @@ body{
 
 
 
+
+/* =====================
+ Header
+===================== */
+
+
 header{
 
     position:fixed;
 
     top:0;
+
     width:100%;
+
+    padding:20px 8%;
 
     display:flex;
 
@@ -39,11 +48,15 @@ header{
 
     align-items:center;
 
-    padding:20px 8%;
+    z-index:100;
 
-    background:rgba(250,247,240,0.9);
+    color:white;
 
-    z-index:10;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.35),
+        transparent
+    );
 
 }
 
@@ -51,9 +64,23 @@ header{
 
 .logo{
 
-    font-size:28px;
+    font-size:30px;
 
-    font-weight:bold;
+    font-weight:900;
+
+    letter-spacing:5px;
+
+}
+
+
+
+.logo span{
+
+    display:block;
+
+    font-size:12px;
+
+    letter-spacing:3px;
 
 }
 
@@ -61,16 +88,52 @@ header{
 
 nav a{
 
-    margin-left:30px;
+    margin-left:40px;
 
-    color:#1b1b1b;
+    color:white;
 
     text-decoration:none;
+
+    position:relative;
 
 }
 
 
 
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:1px;
+
+    background:#c8a951;
+
+    transition:.3s;
+
+}
+
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+
+
+
+/* =====================
+ Hero
+===================== */
 
 
 .hero{
@@ -79,7 +142,10 @@ nav a{
 
     position:relative;
 
+    overflow:hidden;
+
 }
+
 
 
 .hero img{
@@ -90,19 +156,39 @@ nav a{
 
     object-fit:cover;
 
+    animation:zoom 15s infinite alternate;
+
 }
 
 
 
-.hero::after{
+@keyframes zoom{
 
-    content:"";
+    from{
+        transform:scale(1);
+    }
+
+
+    to{
+        transform:scale(1.1);
+    }
+
+}
+
+
+
+.hero-overlay{
 
     position:absolute;
 
     inset:0;
 
-    background:rgba(0,0,0,0.4);
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,.25)
+    );
 
 }
 
@@ -120,7 +206,17 @@ nav a{
 
     color:white;
 
-    z-index:1;
+    z-index:2;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:20px;
+
+    letter-spacing:5px;
 
 }
 
@@ -128,7 +224,31 @@ nav a{
 
 .hero-text h1{
 
-    font-size:60px;
+    font-size:64px;
+
+    line-height:1.5;
+
+    margin-top:30px;
+
+    letter-spacing:8px;
+
+}
+
+
+
+.scroll{
+
+    display:inline-block;
+
+    margin-top:50px;
+
+    color:white;
+
+    text-decoration:none;
+
+    letter-spacing:5px;
+
+    font-size:12px;
 
 }
 
@@ -136,9 +256,14 @@ nav a{
 
 
 
+/* =====================
+ Section
+===================== */
+
+
 .section{
 
-    padding:120px 10%;
+    padding:140px 10%;
 
     text-align:center;
 
@@ -148,9 +273,29 @@ nav a{
 
 .section h2{
 
-    font-size:40px;
+    font-size:42px;
 
-    margin-bottom:50px;
+    letter-spacing:8px;
+
+    margin-bottom:60px;
+
+}
+
+
+
+.section h2::before{
+
+    content:"";
+
+    display:block;
+
+    width:40px;
+
+    height:2px;
+
+    background:#8b0000;
+
+    margin:0 auto 25px;
 
 }
 
@@ -158,16 +303,87 @@ nav a{
 
 
 
-.section img{
+/* =====================
+ About
+===================== */
 
-    width:70%;
 
-    margin-top:40px;
+.about-content{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:70px;
 
 }
 
 
 
+.about-content img{
+
+    width:45%;
+
+}
+
+
+
+.about-content .text{
+
+    text-align:left;
+
+}
+
+
+
+.lead{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+/* =====================
+ History
+===================== */
+
+
+.history{
+
+    padding:140px 10%;
+
+    background:#1b1b1b;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+
+.history h2{
+
+    font-size:42px;
+
+    letter-spacing:6px;
+
+}
+
+
+
+
+
+/* =====================
+ Concept
+===================== */
 
 
 .cards{
@@ -184,13 +400,50 @@ nav a{
 
     flex:1;
 
-    padding:40px;
+    padding:50px 35px;
 
     background:white;
+
+    border-top:3px solid #8b0000;
+
+    transition:.4s;
 
 }
 
 
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.card h3{
+
+    font-size:25px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+/* =====================
+ Menu
+===================== */
+
+
+.menu{
+
+    background:#111;
+
+    color:white;
+
+}
 
 
 
@@ -198,33 +451,161 @@ nav a{
 
     display:flex;
 
-    gap:30px;
+    gap:40px;
 
 }
 
 
 
-.foods img{
+.food{
+
+    flex:1;
+
+    text-align:left;
+
+}
+
+
+
+.food img{
 
     width:100%;
 
-    margin:0;
+    aspect-ratio:1/1;
+
+    object-fit:cover;
 
 }
 
 
 
+.food h3{
+
+    margin-top:25px;
+
+    font-size:25px;
+
+}
+
+
+
+.food p{
+
+    margin-top:10px;
+
+}
+
+
+
+
+
+
+/* =====================
+ Review
+===================== */
+
+
+.review-box{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+
+
+.review-box p{
+
+    padding:30px;
+
+    margin-bottom:20px;
+
+    background:white;
+
+    border-left:5px solid #c8a951;
+
+}
+
+
+
+
+
+/* =====================
+ Access
+===================== */
+
+
+.shop-name{
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.reserve{
+
+    display:inline-block;
+
+    margin-top:40px;
+
+    padding:18px 50px;
+
+    background:#8b0000;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.reserve:hover{
+
+    background:#c8a951;
+
+}
+
+
+
+
+
+/* =====================
+ Mobile Button
+===================== */
+
+
+.mobile-reserve{
+
+    display:none;
+
+}
+
+
+
+
+
+/* =====================
+ Animation
+===================== */
 
 
 .fade{
 
     opacity:0;
 
-    transform:translateY(40px);
+    transform:translateY(50px);
 
     transition:1s;
 
 }
+
 
 
 .fade.show{
@@ -238,13 +619,19 @@ nav a{
 
 
 
+
+/* =====================
+ Footer
+===================== */
+
+
 footer{
 
-    padding:40px;
+    padding:50px;
 
     text-align:center;
 
-    background:#1b1b1b;
+    background:#111;
 
     color:white;
 
@@ -254,12 +641,24 @@ footer{
 
 
 
+/* =====================
+ Smartphone
+===================== */
+
+
 @media(max-width:768px){
 
 
 header{
 
-    padding:15px 5%;
+    padding:20px 5%;
+
+}
+
+
+.logo{
+
+    font-size:24px;
 
 }
 
@@ -271,9 +670,28 @@ nav{
 }
 
 
+
+.hero-text{
+
+    left:8%;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:14px;
+
+}
+
+
+
 .hero-text h1{
 
-    font-size:36px;
+    font-size:38px;
+
+    letter-spacing:4px;
 
 }
 
@@ -281,7 +699,31 @@ nav{
 
 .section{
 
-    padding:80px 5%;
+    padding:90px 5%;
+
+}
+
+
+
+.section h2{
+
+    font-size:30px;
+
+}
+
+
+
+.about-content{
+
+    flex-direction:column;
+
+}
+
+
+
+.about-content img{
+
+    width:100%;
 
 }
 
@@ -296,9 +738,41 @@ nav{
 
 
 
-.section img{
+
+.food{
 
     width:100%;
+
+}
+
+
+
+
+.mobile-reserve{
+
+    display:block;
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:5%;
+
+    width:90%;
+
+    padding:15px;
+
+    text-align:center;
+
+    background:#8b0000;
+
+    color:white;
+
+    text-decoration:none;
+
+    z-index:200;
+
+    border-radius:5px;
 
 }
 
