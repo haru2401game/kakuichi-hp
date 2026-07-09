@@ -179,9 +179,7 @@ document.querySelectorAll('a[href^="#"]')
 // =====================
 
 
-const images =
-document.querySelectorAll(".gallery-image");
-
+const images = document.querySelectorAll(".gallery-image");
 
 
 images.forEach(image=>{
@@ -190,19 +188,17 @@ images.forEach(image=>{
     image.addEventListener("click",()=>{
 
 
-        const modal =
-        document.createElement("div");
-
+        const modal = document.createElement("div");
 
         modal.className="image-modal";
 
 
-        modal.innerHTML=`
+        const modalImage = document.createElement("img");
 
-        <img src="${image.src}">
+        modalImage.src = image.src;
 
-        `;
 
+        modal.appendChild(modalImage);
 
 
         document.body.appendChild(modal);
@@ -211,9 +207,7 @@ images.forEach(image=>{
 
         modal.addEventListener("click",()=>{
 
-
             modal.remove();
-
 
         });
 

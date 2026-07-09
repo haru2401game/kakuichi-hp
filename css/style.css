@@ -760,30 +760,36 @@ footer{
 
 
 
-/* =====================
- Smartphone
-===================== */
-
-
 @media(max-width:768px){
+
+    body{
+    padding-bottom:80px;
+    }
+
+/* =====================
+ Header
+===================== */
 
 
 header{
 
-    padding:20px 5%;
-
-}
-
-header.scrolled{
-
-    background:rgba(20,20,20,.95);
+    padding:18px 5%;
 
 }
 
 
 .logo{
 
-    font-size:24px;
+    font-size:22px;
+
+    letter-spacing:3px;
+
+}
+
+
+.logo span{
+
+    font-size:10px;
 
 }
 
@@ -797,19 +803,34 @@ nav{
 
 
 
-.hero-text{
 
-    left:8%;
+
+/* =====================
+ Hero
+===================== */
+
+
+.hero{
+
+    height:85vh;
 
 }
 
 
 
-.hero-text h1{
+.hero img{
 
-    font-size:38px;
+    object-position:center;
 
-    letter-spacing:5px;
+}
+
+
+
+.hero-text{
+
+    left:8%;
+
+    top:55%;
 
 }
 
@@ -819,13 +840,46 @@ nav{
 
     font-size:14px;
 
+    letter-spacing:4px;
+
 }
 
 
 
+.hero-text h1{
+
+    font-size:36px;
+
+    letter-spacing:4px;
+
+    margin-top:20px;
+
+}
+
+
+
+.hero-text span{
+
+    margin-top:25px;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+}
+
+
+
+
+
+/* =====================
+ Section
+===================== */
+
+
 .section{
 
-    padding:90px 5%;
+    padding:80px 6%;
 
 }
 
@@ -833,15 +887,28 @@ nav{
 
 .section h2{
 
-    font-size:30px;
+    font-size:28px;
+
+    letter-spacing:5px;
+
+    margin-bottom:40px;
 
 }
 
 
 
+
+
+/* =====================
+ About
+===================== */
+
+
 .about-content{
 
     flex-direction:column;
+
+    gap:35px;
 
 }
 
@@ -855,10 +922,90 @@ nav{
 
 
 
-.cards,
+.about-content .text{
+
+    text-align:left;
+
+}
+
+
+
+.lead{
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* =====================
+ History
+===================== */
+
+
+.history{
+
+    padding:90px 6%;
+
+}
+
+
+
+.history h2{
+
+    font-size:28px;
+
+}
+
+
+
+
+
+/* =====================
+ Concept
+===================== */
+
+
+.cards{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.card{
+
+    padding:35px 25px;
+
+}
+
+
+
+.card h3{
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* =====================
+ Food
+===================== */
+
+
 .foods{
 
     flex-direction:column;
+
+    gap:45px;
 
 }
 
@@ -872,9 +1019,102 @@ nav{
 
 
 
+.food img{
+
+    aspect-ratio:4/3;
+
+}
+
+
+
+.food h3{
+
+    font-size:22px;
+
+}
+
+
+
+
+
+/* =====================
+ Course
+===================== */
+
+
+.menu-list div{
+
+    padding:25px;
+
+}
+
+
+
+.menu-list h3{
+
+    font-size:21px;
+
+}
+
+
+
+
+
+/* =====================
+ Review
+===================== */
+
+
+.review-box p{
+
+    padding:22px;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+/* =====================
+ Access
+===================== */
+
+
 .shop-info{
 
-    padding:30px;
+    padding:25px;
+
+    font-size:14px;
+
+}
+
+
+
+.shop-name{
+
+    font-size:26px;
+
+}
+
+
+
+.reserve{
+
+    width:100%;
+
+    padding:16px;
+
+}
+
+
+
+
+
+.map{
+
+    margin-top:40px;
 
 }
 
@@ -888,19 +1128,26 @@ nav{
 
 
 
+
+
+/* =====================
+ Mobile Reserve
+===================== */
+
+
 .mobile-reserve{
 
     display:block;
 
     position:fixed;
 
-    bottom:20px;
+    bottom:15px;
 
     left:5%;
 
     width:90%;
 
-    padding:15px;
+    padding:14px;
 
     text-align:center;
 
@@ -912,9 +1159,30 @@ nav{
 
     z-index:200;
 
-    border-radius:5px;
+    border-radius:3px;
+
+    letter-spacing:2px;
 
 }
+
+
+
+
+
+/* =====================
+ Lightbox
+===================== */
+
+
+.image-modal img{
+
+    max-width:95%;
+
+    max-height:80%;
+
+}
+
+
 
 }
 
@@ -940,8 +1208,6 @@ nav{
 
 
 
-
-
 .image-modal{
 
     position:fixed;
@@ -958,6 +1224,7 @@ nav{
 
     z-index:999;
 
+    cursor:pointer;
 
 }
 
@@ -970,5 +1237,44 @@ nav{
     max-height:90%;
 
     object-fit:contain;
+
+    animation:zoomIn .3s;
+
+}
+
+
+
+@keyframes zoomIn{
+
+    from{
+
+        transform:scale(.8);
+
+        opacity:0;
+
+    }
+
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@media(max-width:768px){
+
+    .image-modal img{
+
+        max-width:95%;
+
+        max-height:80%;
+
+    }
 
 }
